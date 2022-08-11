@@ -93,4 +93,5 @@ td {
 .form .error{
     color: red;
     text-align: left;
+    padding: 0 0 0 0;
 }
