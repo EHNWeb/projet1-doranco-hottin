@@ -33,9 +33,11 @@
 					</tr>
 				</thead>
 				<tbody>
+				{% if tabEmployes|length == 0 %}
 					<tr>
 						<td colspan="11">Pas d'employé dans l'entreprise !</td>
 					</tr>
+				{% else %}		
                     {% for employe in tabEmployes %}                        
 					<tr>
 						<td>{{ employe.id }}</td>
@@ -55,6 +57,7 @@
 						</td>
 					</tr>
                     {% endfor %}
+				{% endif %}
 				</tbody>
 			</table>
 		</div>
