@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EntrepriseController!
+{% endblock %}
+
+{% block body %}
+
+	{% for message in app.flashes('success') %}
+		<div class="alert-success">{{ message }}</div>
+	{% endfor %}
+
+	<div>
+		<h1>Liste des employés</h1>
+
+		<h3 class="text-center my-3">Nombre d'employés de l'entreprise: {{ tabEmployes|length }}</h3>
+		<div><a href="{{ path('entreprise_create') }}" class="button">Ajouter un employé</a></div>
+
+		<div>
+			<!-- Affichage des résultats de la requete SQL sous forme de tableau HTML -->
+			<table>
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Prénom</th>
+						<th>Nom</th>
+						<th>Téléphone</th>
+						<th>E-mail</th>
+						<th>Adresse</th>
+						<th>Salaire</th>
+						<th>Poste</th>
+						<th>Date de Naissance</th>
+						<th colspan="2">Option</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="11">Pas d'employé dans l'entreprise !</td>
+					</tr>
+                    {% for employe in tabEmployes %}                        
+					<tr>
+						<td>{{ employe.id }}</td>
+						<td>{{ employe.prenom }}</td>
+						<td>{{ employe.nom }}</td>
+						<td>{{ employe.telephone }}</td>
+						<td>{{ employe.email }}</td>
+                        <td>{{ employe.adresse }}</td>
+                        <td>{{ employe.salaire }}</td>
+                        <td>{{ employe.poste }}</td>
+                        <td>{{ employe.datedenaissance|date('d/m/Y') }}</td>
+						<td>
+							<a href="{{ path('entreprise_edit', {id: employe.id}) }}"><i class="fa-solid fa-pen"></i></a>
+						</td>
+						<td>
+							<a href="{{ path('entreprise_delete', {id: employe.id}) }}"><i class="fa-solid fa-trash-can"></i></a>
+						</td>
+					</tr>
+                    {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

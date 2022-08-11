@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="form">
+	<h1>
+		{% if editMode %}
+			Modification d'un employé
+		{% else %}
+			Création d'un nouvel employé
+		{% endif %}
+	</h1>
+
+	{{ form_start(formEmploye, {
+        attr: {
+            novalidate: 'novalidate'
+        }
+        })
+    }}
+
+	{{ form_row(formEmploye.prenom, {
+                label: "Prénom",
+                attr: {
+                    placeholder: "Prénom de l'employé"
+                }
+            }) }}
+	{{ form_row(formEmploye.nom, {
+                label: "Nom",
+                attr: {
+                    placeholder: "Nom de l'employé"
+                }
+            }) }}
+	{{ form_row(formEmploye.telephone, {
+                label: "Téléphone",
+                attr: {
+                    placeholder: "Téléphone de l'employé"
+                }
+            }) }}
+	{{ form_row(formEmploye.email, {
+                label: "E-mail",
+                attr: {
+                    placeholder: "E-mail de l'employé"
+                }
+            }) }}
+	{{ form_row(formEmploye.adresse, {
+                label: "Adresse",
+                attr: {
+                    placeholder: "Adresse de l'employé"
+                }
+            }) }}
+	{{ form_row(formEmploye.poste, {
+                label: "Poste",
+                attr: {
+                    placeholder: "Poste de l'employé"
+                }
+            }) }}
+	{{ form_row(formEmploye.salaire, {
+                label: "Salaire (€)",
+                attr: {
+                    placeholder: "Salaire de l'employé"
+                }
+            }) }}
+	{{ form_row(formEmploye.datedenaissance, {
+                label: "Date de naissance",
+            }) }}
+
+	<button type="submit" class="button">
+        {% if editMode %}
+			Modifier
+		{% else %}
+			Ajouter
+		{% endif %}
+	</button>
+  	<a href="{{ path('app_entreprise') }}" class="button">Annuler</a>
+
+
+	{{ form_end(formEmploye) }}
+
+    </div>
+
+{% endblock %}
