@@ -44,9 +44,9 @@
             {% if form_errors(formEmploye.prenom) or form_errors(formEmploye.nom) %}
             <tr>
                 <td></td>
-                <td class="error">{{ form_errors(formEmploye.prenom)}}</td>
+                <td class="error">{{ form_errors(formEmploye.prenom)|replace({'<ul><li>': '' , '</li></ul>': ''}) }}</td>
                 <td></td>
-                <td class="error">{{ form_errors(formEmploye.nom)}}</td>
+                <td class="error">{{ form_errors(formEmploye.nom)|replace({'<ul><li>': '' , '</li></ul>': ''}) }}</td>
             </tr>
             {% endif %}
 			<tr>
@@ -71,14 +71,14 @@
                             }
                         })
                     }}
-				</td>
+				</td
 			</tr>
             {% if form_errors(formEmploye.telephone) or form_errors(formEmploye.email) %}
             <tr>
                 <td></td>
-                <td class="error">{{ form_errors(formEmploye.telephone)}}</td>
+                <td class="error">{{ form_errors(formEmploye.telephone)|replace({'<ul><li>': '' , '</li></ul>': ''}) }}</td>
                 <td></td>
-                <td class="error">{{ form_errors(formEmploye.email)}}</td>
+                <td class="error">{{ form_errors(formEmploye.email)|replace({'<ul><li>': '' , '</li></ul>': ''}) }}</td>
             </tr>
             {% endif %}
 			<tr>
@@ -103,9 +103,9 @@
             {% if form_errors(formEmploye.adresse) or form_errors(formEmploye.datedenaissance) %}
             <tr>
                 <td></td>
-                <td class="error">{{ form_errors(formEmploye.adresse)}}</td>
+                <td class="error">{{ form_errors(formEmploye.adresse)|replace({'<ul><li>': '' , '</li></ul>': ''}) }}</td>
                 <td></td>
-                <td class="error">{{ form_errors(formEmploye.datedenaissance)}}</td>
+                <td class="error">{{ "La date n'est pas valide" }}</td>
             </tr>
             {% endif %}
             <tr>
@@ -135,9 +135,9 @@
             {% if form_errors(formEmploye.poste) or form_errors(formEmploye.salaire) %}
             <tr>
                 <td></td>
-                <td class="error">{{ form_errors(formEmploye.poste)}}</td>
+                <td class="error">{{ form_errors(formEmploye.poste)|replace({'<ul><li>': '' , '</li></ul>': ''}) }}</td>
                 <td></td>
-                <td class="error">{{ form_errors(formEmploye.salaire)}}</td>
+                <td class="error">{{ form_errors(formEmploye.salaire)|replace({'<ul><li>': '' , '</li></ul>': ''}) }}</td>
             </tr>
             {% endif %}
 		</table>
