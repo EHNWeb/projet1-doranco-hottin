@@ -1,80 +1,158 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<div class="form">
-	<h1>
-		{% if editMode %}
-			Modification d'un employé
-		{% else %}
-			Création d'un nouvel employé
-		{% endif %}
-	</h1>
+	<div class="form">
+		<h1>
+			{% if editMode %}
+				Modification d'un employé
+			{% else %}
+				Création d'un nouvel employé
+			{% endif %}
+		</h1>
 
-	{{ form_start(formEmploye, {
+		{{ form_start(formEmploye, {
         attr: {
             novalidate: 'novalidate'
         }
         })
     }}
-
-        {{ form_row(formEmploye.prenom, {
-                    label: "Prénom",
-                    attr: {
-                        placeholder: "Prénom de l'employé"
-                    }
-                }) }}
-        {{ form_row(formEmploye.nom, {
-                    label: "Nom",
-                    attr: {
-                        placeholder: "Nom de l'employé"
-                    }
-                }) }}
-        {{ form_row(formEmploye.telephone, {
-                    label: "Téléphone",
-                    attr: {
-                        placeholder: "Téléphone de l'employé"
-                    }
-                }) }}
-        {{ form_row(formEmploye.email, {
-                    label: "E-mail",
-                    attr: {
-                        placeholder: "E-mail de l'employé"
-                    }
-                }) }}
-        {{ form_row(formEmploye.adresse, {
-                    label: "Adresse",
-                    attr: {
-                        placeholder: "Adresse de l'employé"
-                    }
-                }) }}
-        {{ form_row(formEmploye.poste, {
-                    label: "Poste",
-                    attr: {
-                        placeholder: "Poste de l'employé"
-                    }
-                }) }}
-        {{ form_row(formEmploye.salaire, {
-                    label: "Salaire (€)",
-                    attr: {
-                        placeholder: "Salaire de l'employé"
-                    }
-                }) }}
-        {{ form_row(formEmploye.datedenaissance, {
-                    label: "Date de naissance",
-                }) }}
-
-        <button type="submit" class="button">
-            {% if editMode %}
-                Modifier
-            {% else %}
-                Ajouter
+		<table>
+			<tr>
+				<td class="label">
+					{{ form_label(formEmploye.prenom, 'Prénom')}}
+				</td>
+				<td class="champ">
+					{{ form_widget(formEmploye.prenom, {
+                            attr: {
+                                placeholder: "Prénom de l'employé"
+                            }
+                        })
+                    }}
+				</td>
+				<td class="label">
+					{{ form_label(formEmploye.nom, 'Nom')}}
+				</td>
+				<td class="champ">
+					{{ form_widget(formEmploye.nom, {
+                            attr: {
+                                placeholder: "Nom de l'employé"
+                            }
+                        })
+                    }}
+				</td>
+			</tr>
+            {% if form_errors(formEmploye.prenom) or form_errors(formEmploye.nom) %}
+            <tr>
+                <td></td>
+                <td class="error">{{ form_errors(formEmploye.prenom)}}</td>
+                <td></td>
+                <td class="error">{{ form_errors(formEmploye.nom)}}</td>
+            </tr>
             {% endif %}
-        </button>
-        <a href="{{ path('app_entreprise') }}" class="button">Annuler</a>
+			<tr>
+				<td class="label">
+					{{ form_label(formEmploye.telephone, 'Téléphone')}}
+				</td>
+				<td class="champ">
+					{{ form_widget(formEmploye.telephone, {
+                            attr: {
+                                placeholder: "Téléphone de l'employé"
+                            }
+                        })
+                    }}
+				</td>
+				<td class="label">
+					{{ form_label(formEmploye.email, 'E-mail')}}
+				</td>
+				<td class="champ">
+					{{ form_widget(formEmploye.email, {
+                            attr: {
+                                placeholder: "E-mail de l'employé"
+                            }
+                        })
+                    }}
+				</td>
+			</tr>
+            {% if form_errors(formEmploye.telephone) or form_errors(formEmploye.email) %}
+            <tr>
+                <td></td>
+                <td class="error">{{ form_errors(formEmploye.telephone)}}</td>
+                <td></td>
+                <td class="error">{{ form_errors(formEmploye.email)}}</td>
+            </tr>
+            {% endif %}
+			<tr>
+				<td class="label">
+					{{ form_label(formEmploye.adresse, 'Adresse')}}
+				</td>
+				<td class="champ">
+					{{ form_widget(formEmploye.adresse, {
+                            attr: {
+                                placeholder: "Adresse de l'employé"
+                            }
+                        })
+                    }}
+				</td>
+				<td class="label">
+					{{ form_label(formEmploye.datedenaissance, 'Date de naissance')}}
+				</td>
+				<td class="champ">
+					{{ form_widget(formEmploye.datedenaissance)}}
+				</td>
+			</tr>
+            {% if form_errors(formEmploye.adresse) or form_errors(formEmploye.datedenaissance) %}
+            <tr>
+                <td></td>
+                <td class="error">{{ form_errors(formEmploye.adresse)}}</td>
+                <td></td>
+                <td class="error">{{ form_errors(formEmploye.datedenaissance)}}</td>
+            </tr>
+            {% endif %}
+            <tr>
+				<td class="label">
+					{{ form_label(formEmploye.poste, 'Poste')}}
+				</td>
+				<td class="champ">
+					{{ form_widget(formEmploye.poste, {
+                            attr: {
+                                placeholder: "Poste de l'employé"
+                            }
+                        })
+                    }}
+				</td>
+				<td class="label">
+					{{ form_label(formEmploye.salaire, 'Salaire (€)')}}
+				</td>
+				<td class="champ">
+					{{ form_widget(formEmploye.salaire, {
+                            attr: {
+                                placeholder: "Salaire de l'employé"
+                            }
+                        })
+                    }}
+				</td>
+			</tr>
+            {% if form_errors(formEmploye.poste) or form_errors(formEmploye.salaire) %}
+            <tr>
+                <td></td>
+                <td class="error">{{ form_errors(formEmploye.poste)}}</td>
+                <td></td>
+                <td class="error">{{ form_errors(formEmploye.salaire)}}</td>
+            </tr>
+            {% endif %}
+		</table>
+		<button type="submit" class="button">
+			{% if editMode %}
+				Modifier
+			{% else %}
+				Ajouter
+			{% endif %}
+		</button>
+		<a href="{{ path('app_entreprise') }}" class="button">Annuler</a><br><br>
+{{ form_errors(formEmploye)}}
 
+		{{ form_end(formEmploye) }}
 
-	{{ form_end(formEmploye) }}
-
-    </div>
+	</div>
 
 {% endblock %}
