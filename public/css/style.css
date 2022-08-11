@@ -41,7 +41,7 @@ td {
     border-bottom: 1px solid #ddd;
 }
 
-td{
+td {
     padding: 10px;
 }
 
@@ -59,7 +59,7 @@ td{
     margin: 10px;
 }
 
-.alert-success{
+.alert-success {
     background-color: lightgreen;
     color: red;
     font-weight: bold;
@@ -67,6 +67,10 @@ td{
     display: inline-block;
 }
 
-form div{
-margin: 10px;
+form div {
+    margin: 10px;
+}
+
+form div label {
+    margin-right: 10px;
 }
