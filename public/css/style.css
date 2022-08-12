@@ -96,6 +96,12 @@ td {
     padding: 0 0 0 0;
 }
 
+.form .help{
+    color: green;
+    text-align: left;
+    padding: 0 0 0 0;
+}
+
 .copyright{
     text-align: center;
 }

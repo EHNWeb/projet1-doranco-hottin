@@ -73,6 +73,11 @@
                     }}
 				</td
 			</tr>
+			<tr>
+                <td></td>
+                <td class="help">{{ formEmploye.telephone.vars.help  }}</td>
+				<td colspan="2"></td>
+            </tr>
             {% if form_errors(formEmploye.telephone) or form_errors(formEmploye.email) %}
             <tr>
                 <td></td>
@@ -136,6 +141,10 @@
                     }}
 				</td>
 			</tr>
+			<tr>
+                <td colspan="3"></td>
+                <td class="help">{{ formEmploye.salaire.vars.help  }}</td>
+            </tr>
             {% if form_errors(formEmploye.poste) or form_errors(formEmploye.salaire) %}
             <tr>
                 <td></td>
