@@ -35,7 +35,7 @@ class Employes
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=6, max=255, minMessage="Il faut {{ limit }} caractères minimum !", maxMessage="Il faut au maximum {{ limit }} caractères !" )
-     * @Assert\Regex("/(?:((?:\+|00)(?:33|33\s0))|0)\s*[1-9](?:[ ]\d{2}){4}/")
+     * @Assert\Regex("/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/", message="Format incorrect, les chiffres peuvent être séparés par un espace, un point ou un tiret")
      * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
      */
     private $telephone;
