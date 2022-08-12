@@ -50,7 +50,7 @@ class Employes
 
     /**
      * @ORM\Column(type="string", length=255)
-    * @Assert\Length(min=10, max=255, minMessage="Il faut {{ limit }} caractères minimum !", maxMessage="Il faut au maximum {{ limit }} caractères !" )
+     * @Assert\Length(min=10, max=255, minMessage="Il faut {{ limit }} caractères minimum !", maxMessage="Il faut au maximum {{ limit }} caractères !" )
      * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
      */
     private $adresse;
@@ -64,8 +64,9 @@ class Employes
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\PositiveOrZero
-     * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
+     * @Assert\Type(type="integer", message="{{ value }} n'est pas un nombre entier.")
+     * @Assert\PositiveOrZero(message="Le salaire doit être positif ou égale à 0")
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide ou ne compoter que des chiffres!")
      */
     private $salaire;
 
