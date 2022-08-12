@@ -26,7 +26,7 @@ class EmployeType extends AbstractType
             ])
             ->add('datedenaissance',DateType::Class, array(
                 'widget' => 'choice',
-                'years' => range(date('Y')-100, date('Y')),
+                'years' => range(date('Y')-70, date('Y')-14),
                 'format' => 'dd-MM-yyyy',
               ));
         ;
