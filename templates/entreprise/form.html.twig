@@ -105,7 +105,11 @@
                 <td></td>
                 <td class="error">{{ form_errors(formEmploye.adresse)|replace({'<ul><li>': '' , '</li></ul>': ''}) }}</td>
                 <td></td>
-                <td class="error">{{ "La date n'est pas valide" }}</td>
+                <td class="error">
+				{% if form_errors(formEmploye.datedenaissance) %}
+					{{ "La date n'est pas valide" }}
+				{% endif %}
+				</td>
             </tr>
             {% endif %}
             <tr>
